@@ -1,5 +1,7 @@
 # http-proxy-server-test
 
+这是个实验项目
+
 #### 介绍
 代理服务器测试
 
@@ -20,13 +22,18 @@ https://www.npmjs.com/package/dns-over-tls
 #### 安装教程
 
 1. nodejs v18.1.0
+
 2.  Deno 1.21.1
+
 3.  `yarn install`
+
 
 #### 使用说明
 
 1. `npm run serve`
+
 2. `deno task serve`
+
 3.设置代理服务器 地址 `127.0.0.1` 端口 `19001`
 
 
