@@ -4,12 +4,13 @@ import {
 } from "https://deno.land/std@0.137.0/testing/asserts.ts";
 import type { IAnswer } from "../node/IAnswer.ts";
 export async function query_dns(name: string): Promise<IAnswer[]> {
+    const origin = `http://localhost:19002`;
     const client = Deno.createHttpClient({
-        proxy: { url: `http://localhost:19002` },
+        proxy: { url: origin },
     });
     try {
         const res = await fetch(
-            `http://localhost:19002/dns-query?name=${name}`,
+            `${origin}/dns-query?name=${name}`,
         );
         if (res.ok) {
             const data = await res.json();
