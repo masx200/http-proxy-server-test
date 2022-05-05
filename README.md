@@ -12,17 +12,21 @@
 
 https://www.npmjs.com/package/dns-over-tls
 
-可以把http请求重定向到https
+可以把`http`请求重定向到`https`
 
 #### 软件架构
 
 软件架构说明
 
+使用`nodejs` 提供 `DNS OVER TLS`的能力
+
+使用`deno` 提供代理转发的能力
+
 #### 安装教程
 
-1. nodejs v18.1.0
+1. `nodejs` v18.1.0
 
-2. Deno 1.21.1
+2. `Deno` 1.21.1
 
 3. `yarn install`
 
@@ -32,4 +36,4 @@ https://www.npmjs.com/package/dns-over-tls
 
 2. `deno task serve`
 
-3.设置代理服务器 地址 `127.0.0.1` 端口 `19001`
+3. 设置代理服务器 地址 `127.0.0.1` 端口 `19001`
