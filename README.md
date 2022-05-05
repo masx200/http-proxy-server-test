@@ -12,6 +12,8 @@
 
 https://www.npmjs.com/package/dns-over-tls
 
+域名解析后对于ipv6和ipv4地址,可同时连接,选择连接更快的地址.
+
 可以把`http`请求重定向到`https`
 
 #### 软件架构
