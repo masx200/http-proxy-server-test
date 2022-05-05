@@ -12,6 +12,7 @@ https://www.npmjs.com/package/dns-over-tls
 可以把http请求重定向到https
 
 
+
 #### 软件架构
 软件架构说明
 
@@ -26,6 +27,6 @@ https://www.npmjs.com/package/dns-over-tls
 
 1. `npm run serve`
 2. `deno task serve`
-
+3.设置代理服务器 地址 `127.0.0.1` 端口 `19001`
 
 
