@@ -1,4 +1,4 @@
-import { isIP } from "https://deno.land/std@0.137.0/node/internal/net.ts";
+import { isIP } from "../deps.ts";
 import { connect4or6_ip } from "./connect4or6_ip.ts";
 import { http_to_https } from "./http_to_https.ts";
 export async function process_request(

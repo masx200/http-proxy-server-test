@@ -1,8 +1,4 @@
-import {
-    copy,
-    writeAll,
-} from "https://deno.land/std@0.137.0/streams/conversion.ts";
-import { isIP } from "https://deno.land/std@0.137.0/node/internal/net.ts";
+import { copy, isIP, writeAll } from "../deps.ts";
 import { connect4or6_conn } from "./connect4or6_conn.ts";
 
 export async function process_connect(

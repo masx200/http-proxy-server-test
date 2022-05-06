@@ -1,7 +1,4 @@
-import {
-    assert,
-    assertInstanceOf,
-} from "https://deno.land/std@0.137.0/testing/asserts.ts";
+import { assert, assertInstanceOf } from "../deps.ts";
 import type { IAnswer } from "../node/IAnswer.ts";
 export async function query_dns(name: string): Promise<IAnswer[]> {
     const origin = `http://localhost:19002`;
