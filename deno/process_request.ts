@@ -1,22 +1,13 @@
-import {
-    copy,
-    writeAll,
-} from "https://deno.land/std@0.137.0/streams/conversion.ts";
 import { isIP } from "https://deno.land/std@0.137.0/node/internal/net.ts";
-import { listening_port } from "./listening_port.ts";
-import { connect4or6_conn } from "./connect4or6_conn.ts";
 import { connect4or6_ip } from "./connect4or6_ip.ts";
 import { http_to_https } from "./http_to_https.ts";
-export async function process_request(req: Request): Promise<Response> {
+export async function process_request(
+    req: Request,
+    next: () => Promise<Response> | Response,
+): Promise<Response> {
     //debugger;
     const { port, hostname } = new URL(req.url);
-    const self_ips = Deno.networkInterfaces().map((v) => v.address);
-    if (
-        Number(port) === listening_port &&
-        (self_ips.includes(hostname) || "localhost" === hostname)
-    ) {
-        return new Response("404", { status: 404 });
-    }
+
     if (req.method !== "CONNECT") {
         if (!port) {
             const url = new URL(req.url);
@@ -57,29 +48,7 @@ export async function process_request(req: Request): Promise<Response> {
         } finally {
             client.close();
         }
+    } else {
+        return await next();
     }
-
-    const connect_port = port ? Number(port) : 80;
-    const socket: Deno.TcpConn = isIP(hostname)
-        ? await Deno.connect({
-            port: connect_port,
-            hostname,
-        })
-        : await connect4or6_conn(hostname, connect_port);
-
-    Deno.upgradeHttp(req)
-        .then(async ([conn, firstPacket]) => {
-            try {
-                await writeAll(conn, firstPacket);
-                await Promise.race([copy(conn, socket), copy(socket, conn)]);
-            } catch (error) {
-                console.error(error);
-            } finally {
-                socket.close();
-                conn.close();
-            }
-        })
-        .catch(console.error);
-
-    return new Response("200", { status: 200 });
 }

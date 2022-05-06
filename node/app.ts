@@ -24,10 +24,12 @@ app.use(async (req, res, next) => {
         res.statusCode = 500;
 
         res.end(String(error));
+        return;
+    } finally {
+        console.log({
+            url: req.url,
+            status: res.statusCode,
+            headers: res.getHeaders(),
+        });
     }
-    console.log({
-        url: req.url,
-        status: res.statusCode,
-        headers: res.getHeaders(),
-    });
 });

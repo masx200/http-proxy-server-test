@@ -10,7 +10,7 @@ export async function start(port: number) {
         });
         server.on("request", app);
         server.listen({ port }, () => {
-            console.log(`Server listening port ${port}`);
+            console.log(`Server listening`, server.address());
             resolve();
         });
     });

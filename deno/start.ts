@@ -7,7 +7,7 @@ export async function start(port: number) {
     ];
     return await Promise.all(
         servers.map(async (server) => {
-            console.log(`Server listening port ${port}`);
+            console.log(`Server listening `, server.addr);
             for await (const conn of server) {
                 handle_conn(conn);
             }
