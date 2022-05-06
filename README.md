@@ -16,6 +16,8 @@ https://www.npmjs.com/package/dns-over-tls
 
 可以把`http`请求重定向到`https`
 
+也支持了代理转发`websocket`的功能
+
 #### 软件架构
 
 软件架构说明
