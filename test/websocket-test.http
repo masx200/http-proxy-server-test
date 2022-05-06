@@ -1,0 +1,15 @@
+GET / HTTP/1.1
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+Cache-Control: no-cache
+Connection: Upgrade
+Host: www.qq.com
+Origin: chrome://new-tab-page-third-party
+Pragma: no-cache
+Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits
+Sec-WebSocket-Key: MX7v/6ik/jjw3iignK1ifw==
+Sec-WebSocket-Protocol: 123, abd
+Sec-WebSocket-Version: 13
+Upgrade: websocket
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.41 Safari/537.36
+

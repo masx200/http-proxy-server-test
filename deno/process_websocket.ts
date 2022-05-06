@@ -20,10 +20,27 @@ export async function process_websocket(
             });
             socket.addEventListener("close", (e) => {
                 console.log(e);
+                if (e.code === 1000 || (3000 <= e.code && e.code <= 4999)) {
+                    client_socket.close(e.code, e.reason);
+                } else {
+                    client_socket.close();
+                }
             });
             socket.addEventListener("message", (e) => {
                 console.log(e);
-                client_socket.send(e.data);
+                if (client_socket.readyState !== WebSocket.OPEN) {
+                    client_socket.addEventListener(
+                        "open",
+                        () => {
+                            client_socket.send(e.data);
+                        },
+                        {
+                            once: true,
+                        },
+                    );
+                } else {
+                    client_socket.send(e.data);
+                }
             });
             socket.addEventListener("open", (e) => {
                 console.log(e);
@@ -39,11 +56,29 @@ export async function process_websocket(
             });
             client_socket.addEventListener("close", (e) => {
                 console.log(e);
-                socket.close(e.code, e.reason);
+
+                if (e.code === 1000 || (3000 <= e.code && e.code <= 4999)) {
+                    socket.close(e.code, e.reason);
+                } else {
+                    socket.close();
+                }
             });
             client_socket.addEventListener("message", (e) => {
                 console.log(e);
-                socket.send(e.data);
+
+                if (socket.readyState !== WebSocket.OPEN) {
+                    socket.addEventListener(
+                        "open",
+                        () => {
+                            socket.send(e.data);
+                        },
+                        {
+                            once: true,
+                        },
+                    );
+                } else {
+                    socket.send(e.data);
+                }
             });
             client_socket.addEventListener("open", (e) => {
                 console.log(e);
