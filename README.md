@@ -41,3 +41,5 @@ https://www.npmjs.com/package/dns-over-tls
 2. `deno task serve`
 
 3. 设置代理服务器 地址 `127.0.0.1` 端口 `19001`
+
+4. `nodejs`服务器在端口19002提供dns 服务
