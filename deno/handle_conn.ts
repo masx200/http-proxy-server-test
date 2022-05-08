@@ -1,11 +1,12 @@
 import { process_start } from "./process_start.ts";
-
+import { error_handler } from "./error_handler.ts";
 export async function handle_conn(conn: Deno.Conn): Promise<void> {
     const { localAddr, remoteAddr } = conn;
     try {
         const httpConn = Deno.serveHttp(conn);
 
         for await (const requestEvent of httpConn) {
+const{request}=requestEvent
             let response: Response;
             try {
                 response = await process_start({
@@ -13,7 +14,7 @@ export async function handle_conn(conn: Deno.Conn): Promise<void> {
                     connInfo: { localAddr, remoteAddr },
                 });
             } catch (error) {
-                response = new Response(String(error), { status: 500 });
+                response = error_handler(request,error)
             }
 
             await requestEvent.respondWith(response).catch((error) => {
