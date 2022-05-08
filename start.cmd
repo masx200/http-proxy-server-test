@@ -1,2 +1,1 @@
-start serve-deno.cmd
-start serve-node.cmd
+npx concurrently "npx pm2 start  --interpreter cmd.exe  ./serve-node.cmd"  "npx pm2 start   --interpreter cmd.exe  ./serve-deno.cmd"
