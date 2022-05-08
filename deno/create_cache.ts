@@ -1,6 +1,7 @@
 export function create_cache<K, V>(
     age: number,
 ): {
+    age: number;
     // storage: Map<K, V>;
     get(name: K): V | undefined;
     set(name: K, value: V): void;
@@ -8,6 +9,7 @@ export function create_cache<K, V>(
     const storage = new Map<K, V>();
     const expires = new Map<K, number>();
     return {
+        age,
         // storage: storage,
         get(name: K): V | undefined {
             const exp = expires.get(name);
