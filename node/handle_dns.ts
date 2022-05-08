@@ -6,17 +6,17 @@ import type { NextFunction } from "express";
 export async function handle_dns(
     req: IncomingMessage,
     res: ServerResponse,
-    next: NextFunction,
+    next: NextFunction
 ) {
     const { headers } = req;
 
     const urlobj = new URL(
         req.url ?? "/",
-        `http://${headers.host ?? "localhost"}`,
+        `http://${headers.host ?? "localhost"}`
     );
     const name = urlobj.searchParams.get("name");
     if (
-        req.method?.toLowerCase() === "get" &&
+        ["get", "head"].includes(req.method?.toLowerCase() || "get") &&
         urlobj.pathname === "/dns-query" &&
         name
     ) {

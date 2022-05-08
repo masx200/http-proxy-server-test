@@ -13,7 +13,12 @@ export function compose<Q, S>(
             throw new TypeError("Middleware must be composed of functions!");
         }
     }
-
+    if (middleware.length === 0) {
+        const result: Middleware<Q, S> = async (_ctx, next): Promise<S> => {
+            return await next();
+        };
+        return result;
+    }
     const ComposedMiddleware: Middleware<Q, S> = async function (
         context,
         next,
@@ -24,8 +29,8 @@ export function compose<Q, S>(
             if (i <= index) throw new Error("next() called multiple times");
 
             index = i;
-            let fn = middleware[i];
-            if (i === middleware.length) fn = next;
+            const fn = middleware[i];
+            if (i === middleware.length) return await next();
             if (!fn) throw new Error("next() is not function?");
             try {
                 return await fn(context, dispatch.bind(null, i + 1));
