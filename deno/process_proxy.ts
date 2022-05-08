@@ -1,3 +1,4 @@
+import { error_handler } from "./error_handler.ts";
 import { Context, NextFunction, RetHandler } from "./Middleware.ts";
 
 export async function process_proxy(
@@ -15,8 +16,6 @@ export async function process_proxy(
             console.error(error);
         }
 
-        return new Response([req.url, String(error)].join("\n"), {
-            status: 500,
-        });
+        return error_handler(req, error);
     }
 }

@@ -4,7 +4,7 @@ import { notfound_handler } from "./notfound_handler.ts";
 
 export async function process_self(
     { request: req }: Context,
-    next: NextFunction
+    next: NextFunction,
 ): Promise<RetHandler> {
     const { port, hostname } = new URL(req.url);
     const self_ips = Deno.networkInterfaces().map((v) => v.address);

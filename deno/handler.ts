@@ -19,5 +19,5 @@ const middleware = [
 export const handler = createHandler(
     middleware,
     notfound_handler,
-    error_handler
+    error_handler,
 );
