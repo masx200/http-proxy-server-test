@@ -8,8 +8,8 @@ export async function resolveDns4and6(hostname: string): Promise<string[]> {
         return [ip.A, ip.AAAA].filter(Boolean) as string[];
     } catch (error) {
         console.error(error);
-        return (
-            await Promise.all([
+        const results = (
+            await Promise.allSettled([
                 Deno.resolveDns(hostname, "AAAA", {
                     nameServer: { ipAddr: "180.76.76.76", port: 53 },
                 }),
@@ -17,6 +17,9 @@ export async function resolveDns4and6(hostname: string): Promise<string[]> {
                     nameServer: { ipAddr: "180.76.76.76", port: 53 },
                 }),
             ])
-        ).flat();
+        ).filter((r) => r.status === "fulfilled") as Array<
+            PromiseFulfilledResult<string[]>
+        >;
+        return results.map((r) => r.value).flat();
     }
 }
