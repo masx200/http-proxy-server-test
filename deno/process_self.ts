@@ -1,9 +1,10 @@
 import { listening_port } from "./listening_port.ts";
+import { Context, NextFunction, RetHandler } from "./Middleware.ts";
 
 export async function process_self(
-    req: Request,
-    next: () => Promise<Response> | Response,
-): Promise<Response> {
+    { request: req }: Context,
+    next: NextFunction,
+): Promise<RetHandler> {
     const { port, hostname } = new URL(req.url);
     const self_ips = Deno.networkInterfaces().map((v) => v.address);
     const ips_bracket = self_ips.map((a) => "[" + a + "]");

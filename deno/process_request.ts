@@ -1,10 +1,11 @@
 import { isIP } from "../deps.ts";
 import { connect4or6_ip } from "./connect4or6_ip.ts";
 import { http_to_https } from "./http_to_https.ts";
+import { Context, NextFunction, RetHandler } from "./Middleware.ts";
 export async function process_request(
-    req: Request,
-    next: () => Promise<Response> | Response,
-): Promise<Response> {
+    { request: req }: Context,
+    next: NextFunction,
+): Promise<RetHandler> {
     //debugger;
     const { port, hostname } = new URL(req.url);
 

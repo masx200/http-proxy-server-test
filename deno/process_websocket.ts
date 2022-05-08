@@ -1,7 +1,8 @@
+import { Context, NextFunction, RetHandler } from "./Middleware.ts";
 export async function process_websocket(
-    req: Request,
-    next: () => Promise<Response> | Response,
-): Promise<Response> {
+    { request: req }: Context,
+    next: NextFunction,
+): Promise<RetHandler> {
     const upgrade = req.headers.get("upgrade") || "";
     const connection = req.headers.get("connection") || "";
     const Sec_WebSocket_Protocol = req.headers

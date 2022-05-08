@@ -1,27 +1,22 @@
-import { process_connect } from "./process_connect.ts";
-import { process_request } from "./process_request.ts";
-import { process_self } from "./process_self.ts";
-import { process_websocket } from "./process_websocket.ts";
+import { Context, NextFunction, RetHandler } from "./Middleware.ts";
 
 export async function process_proxy(
-    req: Request,
-    next: () => Promise<Response> | Response,
-): Promise<Response> {
-    // const { url, method, headers } = req;
-    // console.log({ url, method, headers: Object.fromEntries(headers) });
-
+    ctx: Context,
+    next: NextFunction,
+): Promise<RetHandler> {
+    const { request } = ctx;
+    const req = request;
     try {
-        return await process_self(
-            req,
-            () =>
-                process_websocket(
-                    req,
-                    () =>
-                        process_request(req, () => process_connect(req, next)),
-                ),
-        );
+        return await next();
     } catch (error) {
-        console.error(error);
-        return new Response(String(error), { status: 500 });
+        if (error instanceof Error) {
+            console.error(String(error), error.stack);
+        } else {
+            console.error(error);
+        }
+
+        return new Response([req.url, String(error)].join("\n"), {
+            status: 500,
+        });
     }
 }

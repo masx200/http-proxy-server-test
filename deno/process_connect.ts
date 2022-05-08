@@ -1,10 +1,11 @@
 import { copy, isIP, writeAll } from "../deps.ts";
 import { connect4or6_conn } from "./connect4or6_conn.ts";
+import { Context, NextFunction, RetHandler } from "./Middleware.ts";
 
 export async function process_connect(
-    req: Request,
-    next: () => Promise<Response> | Response,
-): Promise<Response> {
+    { request: req }: Context,
+    next: NextFunction,
+): Promise<RetHandler> {
     if (req.method !== "CONNECT") {
         return await next();
     }

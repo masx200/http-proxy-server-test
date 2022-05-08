@@ -1,0 +1,22 @@
+import { createHandler } from "./createHandler.ts";
+import { error_handler } from "./error_handler.ts";
+import { logger } from "./logger.ts";
+import { notfound_handler } from "./notfound_handler.ts";
+import { process_connect } from "./process_connect.ts";
+import { process_proxy } from "./process_proxy.ts";
+import { process_request } from "./process_request.ts";
+import { process_self } from "./process_self.ts";
+import { process_websocket } from "./process_websocket.ts";
+
+export const handler = createHandler(
+    [
+        logger,
+        process_proxy,
+        process_self,
+        process_websocket,
+        process_request,
+        process_connect,
+    ],
+    notfound_handler,
+    error_handler,
+);
