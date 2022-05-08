@@ -16,7 +16,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get("/",async (req, res, next) => {
+app.get("/", async (req, res, next) => {
     try {
         await handle_dns(req, res, next);
     } catch (error) {

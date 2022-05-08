@@ -9,3 +9,4 @@ import {
 } from "https://deno.land/std@0.138.0/testing/asserts.ts";
 export { isIP };
 export { assert, assertInstanceOf, copy, writeAll };
+export type { ConnInfo } from "https://deno.land/std@0.138.0/http/server.ts";
