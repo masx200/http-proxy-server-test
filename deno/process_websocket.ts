@@ -1,3 +1,4 @@
+import { error_handler } from "./error_handler.ts";
 import { Context, NextFunction, RetHandler } from "./Middleware.ts";
 export async function process_websocket(
     { request: req }: Context,
@@ -88,7 +89,7 @@ export async function process_websocket(
             return response;
         } catch (err) {
             console.error(err);
-            return new Response(String(err), { status: 400 });
+            return error_handler(req,err)
         }
     } else {
         return await next();
