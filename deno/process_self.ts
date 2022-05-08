@@ -1,9 +1,10 @@
 import { listening_port } from "./listening_port.ts";
 import { Context, NextFunction, RetHandler } from "./Middleware.ts";
+import { notfound_handler } from "./notfound_handler.ts";
 
 export async function process_self(
     { request: req }: Context,
-    next: NextFunction,
+    next: NextFunction
 ): Promise<RetHandler> {
     const { port, hostname } = new URL(req.url);
     const self_ips = Deno.networkInterfaces().map((v) => v.address);
@@ -14,7 +15,7 @@ export async function process_self(
             "localhost" === hostname ||
             ips_bracket.includes(hostname))
     ) {
-        return new Response("404", { status: 404 });
+        return notfound_handler(req);
     } else {
         return await next();
     }
