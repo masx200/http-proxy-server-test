@@ -17,10 +17,10 @@ export async function resolveDns4and6(hostname: string): Promise<string[]> {
         const results = (
             await Promise.allSettled([
                 Deno.resolveDns(hostname, "AAAA", {
-                    nameServer: { ipAddr: "180.76.76.76", port: 53 },
+                    nameServer: { ipAddr: "223.5.5.5", port: 53 },
                 }),
                 Deno.resolveDns(hostname, "A", {
-                    nameServer: { ipAddr: "180.76.76.76", port: 53 },
+                    nameServer: { ipAddr: "223.5.5.5", port: 53 },
                 }),
             ])
         ).filter((r) => r.status === "fulfilled") as Array<
