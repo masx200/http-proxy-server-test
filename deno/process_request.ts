@@ -10,7 +10,7 @@ export async function process_request(
     const { port, hostname } = new URL(req.url);
 
     if (req.method !== "CONNECT") {
-        if (!port&&!isIP(hostname)) {
+        if (!port && !isIP(hostname)) {
             const url = new URL(req.url);
             url.protocol = "https:";
             // console.log(http_to_https);
