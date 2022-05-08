@@ -18,7 +18,7 @@ export async function process_request(
             } else {
                 try {
                     const c = await Deno.connectTls({ port: 443, hostname });
-await c.handshake()
+                    await c.handshake();
                     c.close();
                     http_to_https.add(hostname);
                     return Response.redirect(String(url), 308);
