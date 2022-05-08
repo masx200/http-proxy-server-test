@@ -3,9 +3,15 @@ import { query_dns } from "./query_dns.ts";
 import { resolveDns } from "../node/resolveDns.ts";
 
 export async function resolveDns4and6(hostname: string): Promise<string[]> {
+    const cached = dns_cache.get(hostname);
+    if (cached) {
+        return cached;
+    }
     try {
-        const ip = await resolveDns(hostname, query_dns, dns_cache);
-        return [ip.A, ip.AAAA].filter(Boolean) as string[];
+        const ip = await resolveDns(hostname, query_dns);
+        const ips = [ip.A, ip.AAAA].filter(Boolean) as string[];
+        dns_cache.set(hostname, ips);
+        return ips;
     } catch (error) {
         console.error(error);
         const results = (
@@ -20,6 +26,8 @@ export async function resolveDns4and6(hostname: string): Promise<string[]> {
         ).filter((r) => r.status === "fulfilled") as Array<
             PromiseFulfilledResult<string[]>
         >;
-        return results.map((r) => r.value).flat();
+        const ips = results.map((r) => r.value).flat();
+        dns_cache.set(hostname, ips);
+        return ips;
     }
 }
