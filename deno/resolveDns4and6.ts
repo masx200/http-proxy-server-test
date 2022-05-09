@@ -10,7 +10,7 @@ export async function resolveDns4and6(hostname: string): Promise<string[]> {
     try {
         const ip = await resolveDns(hostname, query_dns);
         const ips = [ip.A, ip.AAAA].filter(Boolean) as string[];
-        dns_cache.set(hostname, ips);
+        save_ips_cache(ips, hostname);
         return ips;
     } catch (error) {
         console.error(error);
@@ -27,7 +27,11 @@ export async function resolveDns4and6(hostname: string): Promise<string[]> {
             PromiseFulfilledResult<string[]>
         >;
         const ips = results.map((r) => r.value).flat();
-        dns_cache.set(hostname, ips);
+        save_ips_cache(ips, hostname);
         return ips;
     }
+}
+
+function save_ips_cache(ips: string[], hostname: string) {
+    ips.length && dns_cache.set(hostname, ips);
 }
