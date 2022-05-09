@@ -1,6 +1,6 @@
 import { ConnInfo, Handler } from "../deps.ts";
 import { compose } from "./compose.ts";
-import { createResponse } from "./createResponse.ts";
+
 import { ErrorHandler } from "./ErrorHandler.ts";
 import { Context, Middleware, RetHandler } from "./Middleware.ts";
 import { NotFoundHandler } from "./NotFoundHandler.ts";
@@ -8,12 +8,12 @@ import { NotFoundHandler } from "./NotFoundHandler.ts";
 export function createHandler(
     middleware: Middleware[],
     notfound: NotFoundHandler,
-    error_handler: ErrorHandler,
+    error_handler: ErrorHandler
 ): Handler {
     const composed = compose(middleware);
     return async function (
         request: Request,
-        connInfo: ConnInfo,
+        connInfo: ConnInfo
     ): Promise<Response> {
         const ctx: Context = { request, connInfo };
         let response: RetHandler;
@@ -26,7 +26,7 @@ export function createHandler(
         if (response instanceof Response) {
             return response;
         } else {
-            return createResponse(response);
+            return await error_handler(request, TypeError("Response expected"));
         }
     };
 }
