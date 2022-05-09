@@ -6,7 +6,7 @@ export async function handle_conn(conn: Deno.Conn): Promise<void> {
         const httpConn = Deno.serveHttp(conn);
 
         for await (const requestEvent of httpConn) {
-const{request}=requestEvent
+            const { request } = requestEvent;
             let response: Response;
             try {
                 response = await process_start({
@@ -14,7 +14,7 @@ const{request}=requestEvent
                     connInfo: { localAddr, remoteAddr },
                 });
             } catch (error) {
-                response = error_handler(request,error)
+                response = error_handler(request, error);
             }
 
             await requestEvent.respondWith(response).catch((error) => {

@@ -89,7 +89,7 @@ export async function process_websocket(
             return response;
         } catch (err) {
             console.error(err);
-            return error_handler(req,err)
+            return error_handler(req, err);
         }
     } else {
         return await next();

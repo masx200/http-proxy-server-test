@@ -32,7 +32,7 @@ __metadata:
     compression: ^1.7.4
     concurrently: ^7.1.0
     cross-env: ^7.0.3
-    dns-over-tls: ^0.0.8
+    dns-over-tls: ^0.0.9
     esmo: ^0.14.1
     etag: ^1.8.1
     express: ^4.18.1
@@ -991,12 +991,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dns-over-tls@npm:^0.0.8":
-  version: 0.0.8
-  resolution: "dns-over-tls@npm:0.0.8"
+"dns-over-tls@npm:^0.0.9":
+  version: 0.0.9
+  resolution: "dns-over-tls@npm:0.0.9"
   dependencies:
     dns-packet: ^5.2.1
-  checksum: 6d003ec14e8be32a96d8b557711f2ab3ffbd748d1a72baec0af242e0a0c0d0eb26bb0a209e019e597b6ae0495be60ac5ecae4b32cb1102e0ddacef417bab110e
+  checksum: 83cd9594320491465252dadfa07b9b09f371c9326b99e377345c744812e4cd6afadd96c0513755f833d5d6f31aa2aa61d79d7e2eb9090f2b9cd1e46ac90dc2c3
   languageName: node
   linkType: hard
 
