@@ -1,8 +1,8 @@
 export interface IAnswer {
-    name: string;
+    // name: string;
     type: string;
-    class: string;
-    ttl: number;
-    flush: boolean;
+    // class: string;
+    // ttl: number;
+    // flush: boolean;
     data: string;
 }

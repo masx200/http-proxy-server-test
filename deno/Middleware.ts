@@ -1,4 +1,3 @@
-import type { ResponseOptions } from "./ResponseOptions.ts";
 import type { ConnInfo } from "../deps.ts";
 export type Middleware<Q = Context, S = RetHandler> = (
     ctx: Q,
@@ -9,4 +8,4 @@ export type Context = {
     request: Request;
 };
 export type NextFunction<S = RetHandler> = () => Promise<S> | S;
-export type RetHandler = Response | ResponseOptions;
+export type RetHandler = Response;

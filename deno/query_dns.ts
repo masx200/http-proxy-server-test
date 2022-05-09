@@ -6,16 +6,14 @@ export async function query_dns(name: string): Promise<IAnswer[]> {
         proxy: { url: origin },
     });
     try {
-        const res = await fetch(
-            `${origin}/dns-query?name=${name}`,
-        );
+        const res = await fetch(`${origin}/dns-query?name=${name}`);
         if (res.ok) {
             const data = await res.json();
             assertInstanceOf(data, Array);
 
             assert(
                 // deno-lint-ignore no-explicit-any
-                data.every(function (d: any) {
+                (data as any[]).every(function (d: any) {
                     return (
                         // deno-lint-ignore ban-ts-comment
                         //@ts-ignore

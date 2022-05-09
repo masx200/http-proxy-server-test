@@ -20,5 +20,5 @@ export async function query_dns(name: string): Promise<IAnswer[]> {
         .map((i) => i.answers)
         .flat()
         .filter((a) => ["A", "AAAA"].includes(a.type));
-    return r;
+    return r.map((a) => ({ type: a.type, data: a.data }));
 }
