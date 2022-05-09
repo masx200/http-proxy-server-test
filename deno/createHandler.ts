@@ -8,12 +8,12 @@ import { NotFoundHandler } from "./NotFoundHandler.ts";
 export function createHandler(
     middleware: Middleware[],
     notfound: NotFoundHandler,
-    error_handler: ErrorHandler
+    error_handler: ErrorHandler,
 ): Handler {
     const composed = compose(middleware);
     return async function (
         request: Request,
-        connInfo: ConnInfo
+        connInfo: ConnInfo,
     ): Promise<Response> {
         const ctx: Context = { request, connInfo };
         let response: RetHandler;
