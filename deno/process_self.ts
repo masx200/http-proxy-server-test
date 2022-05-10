@@ -3,14 +3,15 @@ import { Context, NextFunction, RetHandler } from "./Middleware.ts";
 import { notfound_handler } from "./notfound_handler.ts";
 
 export async function process_self(
-    { request: req }: Context,
+    { request: req, connInfo }: Context,
     next: NextFunction,
 ): Promise<RetHandler> {
-    const { /*  port, */ hostname } = new URL(req.url);
+    const { port, hostname } = new URL(req.url);
     const self_ips = Deno.networkInterfaces().map((v) => v.address);
     const ips_bracket = self_ips.map((a) => "[" + a + "]");
     if (
-        // Number(port) === listening_port &&
+        connInfo.localAddr.transport === "tcp" &&
+        Number(port) === connInfo.localAddr.port &&
         (self_ips.includes(hostname) ||
             "localhost" === hostname ||
             ips_bracket.includes(hostname))
