@@ -1,12 +1,14 @@
 import compression from "compression";
 import express from "express";
 import { handle_dns } from "./handle_dns.ts";
+//@ts-ignore
+import preconditions from "express-preconditions";
 
 //@ts-ignore
 import expressLogging from "express-logging";
 import logger from "logops";
 export const app = express();
-
+app.use(preconditions());
 app.set("x-powered-by", false);
 app.use(compression());
 app.use(expressLogging(logger));

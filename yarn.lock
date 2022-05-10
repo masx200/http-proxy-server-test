@@ -37,6 +37,7 @@ __metadata:
     etag: ^1.8.1
     express: ^4.18.1
     express-logging: ^1.1.1
+    express-preconditions: ^1.0.5
     http-proxy-agent: ^5.0.0
     logops: ^2.1.2
     pm2: ^5.2.0
@@ -1414,6 +1415,13 @@ __metadata:
   dependencies:
     on-headers: ^1.0.0
   checksum: c05851ffcece310791c9f9d50687a527ddbd197595d5e270d2d253a3ee3bc79a79618ac4685608ad321a930fa5c2d2b5c4ef2b3738f91d55c71b38c6da9e4085
+  languageName: node
+  linkType: hard
+
+"express-preconditions@npm:^1.0.5":
+  version: 1.0.5
+  resolution: "express-preconditions@npm:1.0.5"
+  checksum: eca7d201cfdead0277b3952ce08d9974c30cc3c8462989b75eb4a12b854e12a0c5baab00d36aae4b965cf7debb0d2a0b64c06a33fee12aeaf741c63fdeb5836e
   languageName: node
   linkType: hard
 
