@@ -1,4 +1,8 @@
 import { listening_port } from "./listening_port.ts";
 import { start } from "./start.ts";
-//console.log(import.meta)
-if (import.meta.main) await start(listening_port);
+import { parse } from "https://deno.land/std@0.138.0/flags/mod.ts";
+
+if (import.meta.main) {
+    const { port } = parse(Deno.args);
+    await start(Number.isNaN(Number(port)) ? listening_port : port);
+}

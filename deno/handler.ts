@@ -7,6 +7,7 @@ import { process_proxy } from "./process_proxy.ts";
 import { process_request } from "./process_request.ts";
 import { process_self } from "./process_self.ts";
 import { process_websocket } from "./process_websocket.ts";
+import { response_builder } from "./response_builder.ts";
 
 const middleware = [
     logger,
@@ -16,8 +17,8 @@ const middleware = [
     process_request,
     process_connect,
 ];
-export const handler = createHandler(
-    middleware,
-    notfound_handler,
-    error_handler,
-);
+export const handler = createHandler(middleware, {
+    notfoundHandler: notfound_handler,
+    errorHandler: error_handler,
+    responseBuilder: response_builder,
+});

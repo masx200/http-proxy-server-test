@@ -1,5 +1,6 @@
 {
     "tasks": {
+        "check": "deno check --unstable --remote ./deno/index.ts",
         "udd": "udd '*/*.ts' '*.ts'",
         "serve": " deno run -A --unstable ./deno/index.ts"
     },

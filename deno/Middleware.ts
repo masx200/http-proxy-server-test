@@ -1,11 +1,21 @@
 import type { ConnInfo } from "../deps.ts";
-export type Middleware<Q = Context, S = RetHandler> = (
-    ctx: Q,
-    next: NextFunction<S>,
-) => Promise<S> | S;
+export type Middleware = (
+    ctx: Context,
+    next: NextFunction,
+) => Promise<RetHandler> | RetHandler;
 export type Context = {
     connInfo: ConnInfo;
     request: Request;
 };
-export type NextFunction<S = RetHandler> = () => Promise<S> | S;
-export type RetHandler = Response;
+export type NextFunction = () => Promise<Response> | Response;
+
+export type RetHandler = Response | ResponseOptions;
+
+export type ResponseOptions = Partial<
+    & Omit<Response, "body">
+    & ResponseInit
+    & {
+        // deno-lint-ignore no-explicit-any
+        body?: null | BodyInit | Array<any> | Record<any, any>;
+    }
+>;
