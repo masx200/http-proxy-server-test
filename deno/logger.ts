@@ -4,10 +4,10 @@ export const logger = async function (
     ctx: Context,
     next: NextFunction,
 ): Promise<RetHandler> {
-    console.log(ctx.connInfo);
+    //console.log(ctx.connInfo);
     const { request } = ctx;
     const { url, method, headers } = request;
-    console.log({ url, method, headers: Object.fromEntries(headers) });
+    console.log({...ctx.connInfo, url, method, headers: Object.fromEntries(headers) });
 
     const response = await next();
 
