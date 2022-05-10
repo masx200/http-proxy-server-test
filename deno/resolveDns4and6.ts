@@ -9,7 +9,7 @@ export async function resolveDns4and6(hostname: string): Promise<string[]> {
     }
     try {
         const ip = await resolveDns(hostname, query_dns);
-        const ips = [ip.A, ip.AAAA].filter(Boolean) as string[];
+        const ips = [ip.AAAA,ip.A, ].filter(Boolean) as string[];
         save_ips_cache(ips, hostname);
         return ips;
     } catch (error) {
