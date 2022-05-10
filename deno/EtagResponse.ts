@@ -11,7 +11,7 @@ export async function EtagResponse(
     const status = response.status || 200;
     if (
         body instanceof ReadableStream ||
-        !body ||
+        // !body ||
         headers.get("etag") ||
         ((status / 100) | 0) !== 2
     ) {
