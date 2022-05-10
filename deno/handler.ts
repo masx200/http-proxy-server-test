@@ -1,6 +1,8 @@
+import { conditional_get } from "./conditional_get.ts";
 import { createHandler } from "./createHandler.ts";
 import { error_handler } from "./error_handler.ts";
 import { logger } from "./logger.ts";
+import { Middleware } from "./Middleware.ts";
 import { notfound_handler } from "./notfound_handler.ts";
 import { process_connect } from "./process_connect.ts";
 import { process_proxy } from "./process_proxy.ts";
@@ -9,8 +11,9 @@ import { process_self } from "./process_self.ts";
 import { process_websocket } from "./process_websocket.ts";
 import { response_builder } from "./response_builder.ts";
 
-const middleware = [
+const middleware: Middleware[] = [
     logger,
+    conditional_get,
     process_proxy,
     process_self,
     process_websocket,
