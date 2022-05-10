@@ -23,6 +23,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@masx200/http-proxy-server-test@workspace:."
   dependencies:
+    "@masx200/mini-cli-args-parser": ^1.0.4
     "@types/compression": ^1.7.2
     "@types/etag": ^1.8.1
     "@types/express": ^4.17.13
@@ -46,6 +47,13 @@ __metadata:
     ws: ^8.6.0
   languageName: unknown
   linkType: soft
+
+"@masx200/mini-cli-args-parser@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "@masx200/mini-cli-args-parser@npm:1.0.4"
+  checksum: dbb4ff79b35e4350f3855fe5f566d116b345a25b9fdf8387373b870a03bedf28d91e68a41b9848abccb54d34b3bc1dadb78775f884663ba0781765d37ad01444
+  languageName: node
+  linkType: hard
 
 "@npmcli/fs@npm:^2.1.0":
   version: 2.1.0

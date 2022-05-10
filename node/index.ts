@@ -6,5 +6,8 @@ import { start } from "./start.ts";
 process.on("unhandledRejection", (e) => {
     console.error(e);
 });
-
-await start(listening_port);
+import parse from "@masx200/mini-cli-args-parser";
+const args = process.argv.slice(2);
+const opts = parse(args);
+const { port } = opts;
+await start(Number.isNaN(Number(port)) ? listening_port : port);
