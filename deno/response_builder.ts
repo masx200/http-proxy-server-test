@@ -2,8 +2,9 @@ import { isPlainObject } from "../deps.ts";
 import { EtagResponse } from "./EtagResponse.ts";
 import { JsonResponse } from "./JsonResponse.ts";
 import { RetHandler } from "./Middleware.ts";
+import { ResponseBuilder } from "./ResponseBuilder.ts";
 
-export const response_builder = async function (
+export const response_builder: ResponseBuilder = async function (
     response: RetHandler,
 ): Promise<Response> {
     const { body } = response;

@@ -16,7 +16,7 @@ export async function process_self(
             "localhost" === hostname ||
             ips_bracket.includes(hostname))
     ) {
-        return notfound_handler(req);
+        return await notfound_handler({ request: req, connInfo });
     } else {
         return await next();
     }

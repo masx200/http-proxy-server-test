@@ -1,3 +1,5 @@
+import { Context } from "./Middleware.ts";
+
 export interface NotFoundHandler {
-    (request: Request): Promise<Response> | Response;
+    (ctx: Context): Promise<Response> | Response;
 }

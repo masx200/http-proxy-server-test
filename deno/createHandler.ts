@@ -28,11 +28,11 @@ export function createHandler(
     ): Promise<Response> {
         const ctx: Context = { request, connInfo };
         let response: RetHandler;
+        const next = () => notfoundHandler(ctx);
         try {
-            const next = () => notfoundHandler(request);
             response = await composed(ctx, next);
         } catch (error) {
-            response = await errorHandler(request, error);
+            response = await errorHandler(error, ctx);
         }
         if (response instanceof Response) {
             return response;

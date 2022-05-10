@@ -1,3 +1,7 @@
+import { Context } from "./Middleware.ts";
+
 export interface ErrorHandler {
-    (request: Request, error: unknown): Promise<Response> | Response;
+    (error: unknown, ctx: Context):
+        | Promise<Response>
+        | Response;
 }
