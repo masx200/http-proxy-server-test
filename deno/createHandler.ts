@@ -7,8 +7,8 @@ import { NotFoundHandler } from "./NotFoundHandler.ts";
 
 export function createHandler(
     middleware: Middleware[],
-    notfound: NotFoundHandler,
-    error_handler: ErrorHandler,
+    notfound: NotFoundHandler = () => new Response(null, { status: 404 }),
+    error_handler: ErrorHandler = () => new Response(null, { status: 500 }),
 ): Handler {
     const composed = compose(middleware);
     return async function (
