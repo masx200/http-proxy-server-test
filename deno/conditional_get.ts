@@ -1,5 +1,5 @@
 import { Context, NextFunction } from "./Middleware.ts";
-import fresh from "https://cdn.skypack.dev/fresh@0.5.2?dts";
+import { fresh } from "../deps.ts";
 export async function conditional_get(ctx: Context, next: NextFunction) {
     const response = await next();
     const { request } = ctx;
