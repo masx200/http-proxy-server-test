@@ -7,7 +7,14 @@ export async function EtagResponse(
     >,
 ): Promise<Response> {
     const { body } = response;
-    if (body instanceof ReadableStream || !body) {
+    const headers = new Headers(response.headers);
+    const status = response.status || 200;
+    if (
+        body instanceof ReadableStream ||
+        !body ||
+        headers.get("etag") ||
+        ((status / 100) | 0) !== 2
+    ) {
         return new Response(body, response);
     } else {
         const buffer = await bodyToBuffer(body);
