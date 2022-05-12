@@ -1,14 +1,12 @@
 import {
-    createHandler,
-    Middleware,
-} from "https://deno.land/x/masx200_deno_http_middleware@1.0.6/mod.ts";
-import {
     conditional_get,
+    createHandler,
     etag_builder,
     json_builder,
     logger,
+    Middleware,
     stream_etag,
-} from "https://cdn.jsdelivr.net/gh/masx200/deno-http-middleware@1.0.6/middleware.ts";
+} from "../deps.ts";
 import { process_connect } from "./process_connect.ts";
 import { process_proxy } from "./process_proxy.ts";
 import { process_request } from "./process_request.ts";

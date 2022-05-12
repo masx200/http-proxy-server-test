@@ -1,9 +1,4 @@
-import {
-    Context,
-    error_handler,
-    NextFunction,
-    RetHandler,
-} from "https://deno.land/x/masx200_deno_http_middleware@1.0.6/mod.ts";
+import { Context, error_handler, NextFunction, RetHandler } from "../deps.ts";
 
 export async function process_websocket(
     ctx: Context,

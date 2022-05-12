@@ -3,7 +3,7 @@ import {
     NextFunction,
     notfound_handler,
     RetHandler,
-} from "https://deno.land/x/masx200_deno_http_middleware@1.0.6/mod.ts";
+} from "../deps.ts";
 
 export async function process_self(
     ctx: Context,

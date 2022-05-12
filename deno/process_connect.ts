@@ -1,9 +1,12 @@
 import {
     Context,
+    copy,
+    isIP,
     NextFunction,
     RetHandler,
-} from "https://deno.land/x/masx200_deno_http_middleware@1.0.6/mod.ts";
-import { copy, isIP, STATUS_TEXT, writeAll } from "../deps.ts";
+    STATUS_TEXT,
+    writeAll,
+} from "../deps.ts";
 import { connect4or6_conn } from "./connect4or6_conn.ts";
 
 export async function process_connect(

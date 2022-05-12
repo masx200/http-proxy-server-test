@@ -4,6 +4,16 @@
         "udd": "udd '*/*.ts' '*.ts'",
         "serve": " deno run -A --unstable ./deno/index.ts"
     },
+    "lint": {
+        "files": {
+            "exclude": [
+                "node_modules",
+                ".yarn",
+                "node",
+                "test"
+            ]
+        }
+    },
     "fmt": {
         "files": {
             "exclude": [
