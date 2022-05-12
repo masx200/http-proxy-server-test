@@ -30,6 +30,7 @@ app.get("/dns-query", async (req, res, next) => {
     } finally {
         console.log("response", {
             url: req.url,
+            method: req.method,
             status: res.statusCode,
             headers: res.getHeaders(),
         });
