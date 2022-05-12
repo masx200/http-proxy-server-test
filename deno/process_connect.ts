@@ -45,7 +45,7 @@ export async function process_connect(
             })
             .catch(console.error);
 
-        return new Response("200", { status: 200 });
+        return new Response(null, { status: 200 });
     } catch (e) {
         console.error(String(e));
         return { status: 503, body: STATUS_TEXT.get(503) };
