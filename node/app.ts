@@ -14,7 +14,7 @@ app.use(compression());
 app.use(expressLogging(logger));
 app.use((req, res, next) => {
     const { method, url, headers } = req;
-    console.log("request",{ method, url, headers });
+    console.log("request", { method, url, headers });
     next();
 });
 
@@ -28,7 +28,7 @@ app.get("/dns-query", async (req, res, next) => {
         res.end(String(error));
         return;
     } finally {
-        console.log("response",{
+        console.log("response", {
             url: req.url,
             status: res.statusCode,
             headers: res.getHeaders(),
