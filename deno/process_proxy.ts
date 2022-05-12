@@ -1,12 +1,16 @@
-import { error_handler } from "./error_handler.ts";
-import { Context, NextFunction, RetHandler } from "./Middleware.ts";
+import {
+    Context,
+    error_handler,
+    NextFunction,
+    RetHandler,
+} from "https://deno.land/x/masx200_deno_http_middleware@1.0.6/mod.ts";
 
 export async function process_proxy(
     ctx: Context,
     next: NextFunction,
 ): Promise<RetHandler> {
     const { request } = ctx;
-    const req = request;
+
     try {
         return await next();
     } catch (error) {
@@ -16,6 +20,6 @@ export async function process_proxy(
             console.error(error);
         }
 
-        return error_handler(req, error);
+        return error_handler(error, ctx);
     }
 }

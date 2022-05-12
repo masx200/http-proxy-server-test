@@ -1,4 +1,5 @@
-import { handle_conn } from "./handle_conn.ts";
+import { serveListener } from "https://deno.land/std@0.138.0/http/server.ts";
+import { handler } from "./handler.ts";
 
 export async function start(port: number) {
     const servers = [
@@ -8,9 +9,7 @@ export async function start(port: number) {
     return await Promise.all(
         servers.map(async (server) => {
             console.log(`Server listening `, server.addr);
-            for await (const conn of server) {
-                handle_conn(conn);
-            }
+            await serveListener(server, handler);
         }),
     );
 }

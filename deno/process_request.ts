@@ -1,7 +1,12 @@
+import {
+    Context,
+    NextFunction,
+    RetHandler,
+} from "https://deno.land/x/masx200_deno_http_middleware@1.0.6/mod.ts";
 import { isIP, STATUS_TEXT } from "../deps.ts";
 import { connect4or6_ip } from "./connect4or6_ip.ts";
 import { http_to_https } from "./http_to_https.ts";
-import { Context, NextFunction, RetHandler } from "./Middleware.ts";
+
 export async function process_request(
     { request: req }: Context,
     next: NextFunction,

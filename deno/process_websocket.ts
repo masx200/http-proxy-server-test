@@ -1,9 +1,15 @@
-import { error_handler } from "./error_handler.ts";
-import { Context, NextFunction, RetHandler } from "./Middleware.ts";
+import {
+    Context,
+    error_handler,
+    NextFunction,
+    RetHandler,
+} from "https://deno.land/x/masx200_deno_http_middleware@1.0.6/mod.ts";
+
 export async function process_websocket(
-    { request: req }: Context,
+    ctx: Context,
     next: NextFunction,
 ): Promise<RetHandler> {
+    const { request: req } = ctx;
     const upgrade = req.headers.get("upgrade") || "";
     const connection = req.headers.get("connection") || "";
     const Sec_WebSocket_Protocol = req.headers
@@ -17,6 +23,7 @@ export async function process_websocket(
         try {
             const { response, socket } = Deno.upgradeWebSocket(req);
             console.log(socket);
+
             socket.addEventListener("error", (e) => {
                 console.log(e);
             });
@@ -89,7 +96,7 @@ export async function process_websocket(
             return response;
         } catch (err) {
             console.error(err);
-            return error_handler(req, err);
+            return error_handler(err, ctx);
         }
     } else {
         return await next();

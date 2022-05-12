@@ -1,6 +1,10 @@
+import {
+    Context,
+    NextFunction,
+    RetHandler,
+} from "https://deno.land/x/masx200_deno_http_middleware@1.0.6/mod.ts";
 import { copy, isIP, STATUS_TEXT, writeAll } from "../deps.ts";
 import { connect4or6_conn } from "./connect4or6_conn.ts";
-import { Context, NextFunction, RetHandler } from "./Middleware.ts";
 
 export async function process_connect(
     { request: req }: Context,

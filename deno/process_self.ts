@@ -1,11 +1,15 @@
-// import { listening_port } from "./listening_port.ts";
-import { Context, NextFunction, RetHandler } from "./Middleware.ts";
-import { notfound_handler } from "./notfound_handler.ts";
+import {
+    Context,
+    NextFunction,
+    notfound_handler,
+    RetHandler,
+} from "https://deno.land/x/masx200_deno_http_middleware@1.0.6/mod.ts";
 
 export async function process_self(
-    { request: req, connInfo }: Context,
+    ctx: Context,
     next: NextFunction,
 ): Promise<RetHandler> {
+    const { request: req, connInfo } = ctx;
     const { port, hostname } = new URL(req.url);
     const self_ips = Deno.networkInterfaces().map((v) => v.address);
     const ips_bracket = self_ips.map((a) => "[" + a + "]");
@@ -16,7 +20,7 @@ export async function process_self(
             "localhost" === hostname ||
             ips_bracket.includes(hostname))
     ) {
-        return await notfound_handler({ request: req, connInfo });
+        return await notfound_handler(ctx);
     } else {
         return await next();
     }
