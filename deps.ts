@@ -1,26 +1,26 @@
 import {
     copy,
     writeAll,
-} from "https://deno.land/std@0.138.0/streams/conversion.ts";
-import { isIP } from "https://deno.land/std@0.138.0/node/internal/net.ts";
+} from "https://deno.land/std@0.139.0/streams/conversion.ts";
+import { isIP } from "https://deno.land/std@0.139.0/node/internal/net.ts";
 import {
     assert,
     assertInstanceOf,
-} from "https://deno.land/std@0.138.0/testing/asserts.ts";
+} from "https://deno.land/std@0.139.0/testing/asserts.ts";
 export { isIP };
 export { assert, assertInstanceOf, copy, writeAll };
 export type {
     ConnInfo,
     Handler,
-} from "https://deno.land/std@0.138.0/http/server.ts";
-export { STATUS_TEXT } from "https://deno.land/std@0.138.0/http/http_status.ts";
+} from "https://deno.land/std@0.139.0/http/server.ts";
+export { STATUS_TEXT } from "https://deno.land/std@0.139.0/http/http_status.ts";
 export type {
     Context,
     NextFunction,
     RetHandler,
 } from "https://deno.land/x/masx200_deno_http_middleware@1.1.0/mod.ts";
 export { default as isPlainObject } from "https://cdn.skypack.dev/lodash@4.17.21/isPlainObject?dts";
-export { parse } from "https://deno.land/std@0.138.0/flags/mod.ts";
+export { parse } from "https://deno.land/std@0.139.0/flags/mod.ts";
 export { createHandler } from "https://deno.land/x/masx200_deno_http_middleware@1.1.0/mod.ts";
 export type { Middleware } from "https://deno.land/x/masx200_deno_http_middleware@1.1.0/mod.ts";
 export {
@@ -30,7 +30,7 @@ export {
     logger,
     stream_etag,
 } from "https://cdn.jsdelivr.net/gh/masx200/deno-http-middleware@1.1.0/middleware.ts";
-export { serveListener } from "https://deno.land/std@0.138.0/http/server.ts";
+export { serveListener } from "https://deno.land/std@0.139.0/http/server.ts";
 import { error_handler } from "https://deno.land/x/masx200_deno_http_middleware@1.1.0/mod.ts";
 export { error_handler };
 export { notfound_handler } from "https://deno.land/x/masx200_deno_http_middleware@1.1.0/mod.ts";
