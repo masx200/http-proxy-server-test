@@ -1,7 +1,7 @@
 import { assert, assertInstanceOf } from "../deps.ts";
 import type { IAnswer } from "../node/IAnswer.ts";
 export async function query_dns(name: string): Promise<IAnswer[]> {
-    const origin = `http://localhost:19002`;
+    const origin = `http://127.0.0.1:19002`;
     const client = Deno.createHttpClient({
         proxy: { url: origin },
     });
