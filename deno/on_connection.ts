@@ -6,7 +6,10 @@ export async function on_connection(connection: Deno.Conn) {
     for await (const requestEvent of Deno.serveHttp(connection)) {
         const response = await Promise.resolve(
             handler(requestEvent.request, connInfo)
-        ).catch(() => new Response(null, { status: 500 }));
+        ).catch((e) =>{
+            console.error(e)
+        return new Response(null, { status: 500 })
+        } );
         await requestEvent.respondWith(response);
     }
 }
