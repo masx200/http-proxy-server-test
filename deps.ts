@@ -30,7 +30,7 @@ export {
     logger,
     stream_etag,
 } from "https://deno.land/x/masx200_deno_http_middleware@1.1.1/middleware.ts";
-export { serve } from "https://deno.land/std@0.139.0/http/server.ts";
+
 import { error_handler } from "https://deno.land/x/masx200_deno_http_middleware@1.1.1/mod.ts";
 export { error_handler };
 export { notfound_handler } from "https://deno.land/x/masx200_deno_http_middleware@1.1.1/mod.ts";

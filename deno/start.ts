@@ -1,10 +1,15 @@
-import { serve } from "../deps.ts";
-import { handler } from "./handler.ts";
-
+import { on_connection } from "./on_connection.ts";
+/*http connect / upgrade 不能用 标准库的http serve函数 */
 export async function start(port: number) {
     const servers = [
-        { port: port, hostname: "0.0.0.0" },
-        { port: port, hostname: "::" },
+        Deno.listen({ port: port, hostname: "0.0.0.0" }),
+        Deno.listen({ port: port, hostname: "::" }),
     ];
-    return await Promise.all(servers.map((server) => serve(handler, server)));
+    return await Promise.all(
+        servers.map(async (server) => {
+            for await (const connection of server) {
+                on_connection(connection).catch(console.error);
+            }
+        })
+    );
 }
