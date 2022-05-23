@@ -15,7 +15,7 @@
         "@types/ws": "^8.5.3",
         "autorestart": "^0.0.1",
         "compression": "^1.7.4",
-        "concurrently": "^7.2.0",
+        "concurrently": "^7.2.1",
         "cross-env": "^7.0.3",
         "dns-over-tls": "^0.0.9",
         "esmo": "^0.15.0",
