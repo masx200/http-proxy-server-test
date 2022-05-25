@@ -5,33 +5,33 @@ __metadata:
   version: 6
   cacheKey: 8
 
-"@esbuild-kit/cjs-loader@npm:^1.0.0":
-  version: 1.0.1
-  resolution: "@esbuild-kit/cjs-loader@npm:1.0.1"
+"@esbuild-kit/cjs-loader@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "@esbuild-kit/cjs-loader@npm:2.0.1"
   dependencies:
-    "@esbuild-kit/core-utils": ^1.0.1
+    "@esbuild-kit/core-utils": ^1.2.0
     get-tsconfig: ^3.0.1
-  checksum: 4270a2a87ed31fff993028e3f4ed10c8ec1ba4237881df2230d8bef9d294dea74b11838f74f77029d0ae20d74608afbadf36a6649f85fe14d8b0ff5a734e0d28
+  checksum: 2694ba11aa44725472ac46a2d27dc3df404c9af15a7011b4c02b3dee2f79142fa71a8bdd1d141d2c147107efe5f9228327ea83100d2e7e53cb323c60efc2e8fa
   languageName: node
   linkType: hard
 
-"@esbuild-kit/core-utils@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "@esbuild-kit/core-utils@npm:1.0.1"
+"@esbuild-kit/core-utils@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "@esbuild-kit/core-utils@npm:1.2.0"
   dependencies:
     esbuild: 0.14.38
-  checksum: da67272a3157299cfaeb88402e34306a9140b12715a6d2a3fb2c74c059c90ba601f93c44be7cbb916cb6e79132891b99c708d848e9d40c2e757674b79001ed41
+  checksum: e4507a3f3d506ad8f63356c8d938f5102cabcfc0d57eb6092b827c1e920ad3c6e4d7e35b6860214f36b3390473f92d56292fb545b13686a844154b5271b7f16f
   languageName: node
   linkType: hard
 
-"@esbuild-kit/esm-loader@npm:^1.1.0":
-  version: 1.1.1
-  resolution: "@esbuild-kit/esm-loader@npm:1.1.1"
+"@esbuild-kit/esm-loader@npm:^2.1.2":
+  version: 2.1.2
+  resolution: "@esbuild-kit/esm-loader@npm:2.1.2"
   dependencies:
-    "@esbuild-kit/core-utils": ^1.0.1
+    "@esbuild-kit/core-utils": ^1.2.0
     es-module-lexer: ^0.10.5
     get-tsconfig: ^3.0.1
-  checksum: 76cd7eb895a383c4f84e5c5b1da8b55bfecf51a39e4833216ad60192fc6dacf3ae8ff776c9a50f2bdc70382546415fb995804c4b37ead371f23ba701892048b7
+  checksum: 3cbc5d5ba43998b07fa47415953f36ce4840afb9d2c45288db9e180f61ed9e43d0e2c5dacec43d7d7aa47fdaa4237359dfbaa1a32c9004e8978ca80c6aa182da
   languageName: node
   linkType: hard
 
@@ -61,10 +61,10 @@ __metadata:
     "@types/ws": ^8.5.3
     autorestart: ^0.0.1
     compression: ^1.7.4
-    concurrently: ^7.2.0
+    concurrently: ^7.2.1
     cross-env: ^7.0.3
     dns-over-tls: ^0.0.9
-    esmo: ^0.15.0
+    esmo: ^0.16.3
     etag: ^1.8.1
     express: ^4.18.1
     express-logging: ^1.1.1
@@ -72,8 +72,8 @@ __metadata:
     http-proxy-agent: ^5.0.0
     logops: ^2.1.2
     pm2: ^5.2.0
-    typescript: ^4.6.4
-    undici: ^5.2.0
+    typescript: ^4.7.2
+    undici: ^5.3.0
     ws: ^8.6.0
   languageName: unknown
   linkType: soft
@@ -801,9 +801,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"concurrently@npm:^7.2.0":
-  version: 7.2.0
-  resolution: "concurrently@npm:7.2.0"
+"concurrently@npm:^7.2.1":
+  version: 7.2.1
+  resolution: "concurrently@npm:7.2.1"
   dependencies:
     chalk: ^4.1.0
     date-fns: ^2.16.1
@@ -816,7 +816,7 @@ __metadata:
     yargs: ^17.3.1
   bin:
     concurrently: dist/bin/concurrently.js
-  checksum: 363506e777c623f922b0cb370e80a776e1ee37a0970aae9862ed51cc613d74b224122ac66829115cc2ee876427e820ae0989a89f1f081575516b9a6739517b51
+  checksum: 384e9f48f2c53a7c46b1bb1143b9dba734953c587e0c080db0c6e71dd4a58f556d096fe4fd9d2d9c601ba7ae8e6c06d452c162bbc2b6a4b16c080c1c4b8e81b4
   languageName: node
   linkType: hard
 
@@ -1360,15 +1360,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esmo@npm:^0.15.0":
-  version: 0.15.0
-  resolution: "esmo@npm:0.15.0"
+"esmo@npm:^0.16.3":
+  version: 0.16.3
+  resolution: "esmo@npm:0.16.3"
   dependencies:
-    tsx: ^2.0.1
+    tsx: ^3.2.1
   bin:
-    esmo: esmo.mjs
     esno: esno.js
-  checksum: 04503f6425938277436ef1d7f96db7975d9c02156bdee1ba056ebf58d8c7a0c0afa336ab4b8a3bf61b2578576c82d6fa803ab2553157b8323e3c20272e82175c
+  checksum: 949cb916ed7a77c0b21212da0c833037e56798a37bf3fa9bf9b4fe8aea503ed39719f26edd8aac80ee500af0184dd8c7933ba35ef5c8a03da523376012676aea
   languageName: node
   linkType: hard
 
@@ -3247,19 +3246,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsx@npm:^2.0.1":
-  version: 2.1.0
-  resolution: "tsx@npm:2.1.0"
+"tsx@npm:^3.2.1":
+  version: 3.4.1
+  resolution: "tsx@npm:3.4.1"
   dependencies:
-    "@esbuild-kit/cjs-loader": ^1.0.0
-    "@esbuild-kit/esm-loader": ^1.1.0
+    "@esbuild-kit/cjs-loader": ^2.0.1
+    "@esbuild-kit/core-utils": ^1.2.0
+    "@esbuild-kit/esm-loader": ^2.1.2
     fsevents: ~2.3.2
   dependenciesMeta:
     fsevents:
       optional: true
   bin:
     tsx: dist/cli.js
-  checksum: 0da86d4ddb5152f53665e8e9204ba83c358fcb3be485ca6f0af4b478cf7e8789cb0b04ad3cf86365cddee0823120f512215baa8f91e9c4dd7769ebb26f32732c
+  checksum: 85fa34110b6ffe5bbcb92a93d42d8896351128d4b1258c40ab8b45e3cb2eae26f846672b74029c64e66f8639503d3d25ae746987a779463c4274971756e92fe2
   languageName: node
   linkType: hard
 
@@ -3298,30 +3298,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.6.4":
-  version: 4.6.4
-  resolution: "typescript@npm:4.6.4"
+"typescript@npm:^4.7.2":
+  version: 4.7.2
+  resolution: "typescript@npm:4.7.2"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: e7bfcc39cd4571a63a54e5ea21f16b8445268b9900bf55aee0e02ad981be576acc140eba24f1af5e3c1457767c96cea6d12861768fb386cf3ffb34013718631a
+  checksum: 5163585e6b56410f77d5483b698d9489bbee8902c99029eb70cf6d21525a186530ce19a00951af84eefd4a131cc51d0959f5118e25e70ab61f45ac4057dbd1ef
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.6.4#~builtin<compat/typescript>":
-  version: 4.6.4
-  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=bda367"
+"typescript@patch:typescript@^4.7.2#~builtin<compat/typescript>":
+  version: 4.7.2
+  resolution: "typescript@patch:typescript@npm%3A4.7.2#~builtin<compat/typescript>::version=4.7.2&hash=bda367"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 1cb434fbc637d347be90e3a0c6cd05e33c38f941713c8786d3031faf1842c2c148ba91d2fac01e7276b0ae3249b8633f1660e32686cc7a8c6a8fd5361dc52c66
+  checksum: 09d93fc0983d38eadd9b0427f790b49b4437f45002a87d447be3fbe53120880e87a91dd03e1d900498f99205d6e0b7c9784fe41fca11d56f4bbce371f74bb160
   languageName: node
   linkType: hard
 
-"undici@npm:^5.2.0":
-  version: 5.2.0
-  resolution: "undici@npm:5.2.0"
-  checksum: b7d6fe077c3ab13b7f7a0e5f4b70354b8489c5d37ca06c471754f9543c34501e3b29394b130afc8f066f11e465d6474ec665b2eb5a61052dc84baa97eeb9c7c3
+"undici@npm:^5.3.0":
+  version: 5.3.0
+  resolution: "undici@npm:5.3.0"
+  checksum: b81ec73f0dbab3b6804a5fe221ed29e564934723a5c8babdd23dfefc250efc46a49447c8bc7af5cef6c270d2d1613c64bfe12c4113ca5672f613d8bd7057e5ea
   languageName: node
   linkType: hard
 
