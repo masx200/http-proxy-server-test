@@ -11,7 +11,7 @@ import { connect4or6_conn } from "./connect4or6_conn.ts";
 
 export async function process_connect(
     { request: req }: Context,
-    next: NextFunction,
+    next: NextFunction
 ): Promise<RetHandler> {
     if (req.method !== "CONNECT") {
         return await next();
@@ -23,9 +23,9 @@ export async function process_connect(
         const connect_port = port ? Number(port) : 80;
         const socket: Deno.TcpConn = isIP(hostname)
             ? await Deno.connect({
-                port: connect_port,
-                hostname,
-            })
+                  port: connect_port,
+                  hostname,
+              })
             : await connect4or6_conn(hostname, connect_port);
 
         Deno.upgradeHttp(req)
@@ -48,6 +48,6 @@ export async function process_connect(
         return new Response(null, { status: 200 });
     } catch (e) {
         console.error(String(e));
-        return { status: 503, body: STATUS_TEXT.get(503) };
+        return { status: 503, body: STATUS_TEXT[503] };
     }
 }
