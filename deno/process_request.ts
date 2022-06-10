@@ -10,7 +10,7 @@ import { http_to_https } from "./http_to_https.ts";
 
 export async function process_request(
     { request: req }: Context,
-    next: NextFunction
+    next: NextFunction,
 ): Promise<RetHandler> {
     //debugger;
     const { port, hostname } = new URL(req.url);

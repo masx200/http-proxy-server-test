@@ -1,4 +1,11 @@
-import { Context, error_handler, NextFunction, RetHandler } from "../deps.ts";
+import {
+    assert,
+    Context,
+    error_handler,
+    get_original_Request,
+    NextFunction,
+    RetHandler,
+} from "../deps.ts";
 
 export async function process_websocket(
     ctx: Context,
@@ -16,7 +23,9 @@ export async function process_websocket(
         upgrade.toLowerCase() === "websocket".toLowerCase()
     ) {
         try {
-            const { response, socket } = Deno.upgradeWebSocket(req);
+            const request = get_original_Request(ctx);
+            assert(request);
+            const { response, socket } = Deno.upgradeWebSocket(request);
             console.log(socket);
 
             socket.addEventListener("error", (e) => {

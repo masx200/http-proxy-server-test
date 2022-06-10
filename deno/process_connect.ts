@@ -1,6 +1,8 @@
 import {
+    assert,
     Context,
     copy,
+    get_original_Request,
     isIP,
     NextFunction,
     RetHandler,
@@ -10,25 +12,28 @@ import {
 import { connect4or6_conn } from "./connect4or6_conn.ts";
 
 export async function process_connect(
-    { request: req }: Context,
-    next: NextFunction
+    ctx: Context,
+    next: NextFunction,
 ): Promise<RetHandler> {
+    const { request: req } = ctx;
     if (req.method !== "CONNECT") {
         return await next();
     }
     //debugger;
     try {
+        const request = get_original_Request(ctx);
+        assert(request);
         const { port, hostname } = new URL(req.url);
 
         const connect_port = port ? Number(port) : 80;
         const socket: Deno.TcpConn = isIP(hostname)
             ? await Deno.connect({
-                  port: connect_port,
-                  hostname,
-              })
+                port: connect_port,
+                hostname,
+            })
             : await connect4or6_conn(hostname, connect_port);
 
-        Deno.upgradeHttp(req)
+        Deno.upgradeHttp(request)
             .then(async ([conn, firstPacket]) => {
                 try {
                     await writeAll(conn, firstPacket);
