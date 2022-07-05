@@ -32,8 +32,15 @@
         "ws": "^8.6.0"
     },
     "packageManager": "yarn@3.2.0",
-    "directories": {},
+    "directories": {
+        "test": "test"
+    },
     "keywords": [],
     "author": "",
-    "description": ""
+    "description": "这是个实验项目",
+    "devDependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/masx200/http-proxy-server-test"
+    }
 }
