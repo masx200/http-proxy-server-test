@@ -73,7 +73,7 @@ __metadata:
     logops: ^2.1.2
     pm2: ^5.2.0
     typescript: ^4.7.4
-    undici: ^5.4.0
+    undici: ^5.6.0
     ws: ^8.6.0
   languageName: unknown
   linkType: soft
@@ -3325,10 +3325,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici@npm:^5.4.0":
-  version: 5.4.0
-  resolution: "undici@npm:5.4.0"
-  checksum: 2852397ee1dbb2b3ad58166520ec30f4f0143895f6e7b157dbedfac4e43b522a710a3927be61a67b2ae791190973f206d30785564ece7675e08133427cebaaa1
+"undici@npm:^5.6.0":
+  version: 5.6.0
+  resolution: "undici@npm:5.6.0"
+  checksum: b9052c2cb9c44b000d375468c266b629032fc72d2024fb07b2988fd42d54937bedb54f44e76bb0ee6ca4c4960c0eee0e77573d178c156647da7ebaa088174baf
   languageName: node
   linkType: hard
 
