@@ -1,6 +1,8 @@
 {
     "include": ["node"],
     "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {},
         "allowJs": true,
         "checkJs": false,
         "strict": true,
