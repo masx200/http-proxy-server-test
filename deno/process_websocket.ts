@@ -9,7 +9,7 @@ import {
 
 export async function process_websocket(
     ctx: Context,
-    next: NextFunction,
+    next: NextFunction
 ): Promise<RetHandler> {
     const { request: req } = ctx;
     const upgrade = req.headers.get("upgrade") || "";
@@ -49,7 +49,7 @@ export async function process_websocket(
                         },
                         {
                             once: true,
-                        },
+                        }
                     );
                 } else {
                     client_socket.send(e.data);
@@ -61,7 +61,7 @@ export async function process_websocket(
 
             const client_socket = new WebSocket(
                 Object.assign(new URL(req.url), { protocol: "ws:" }).toString(),
-                Sec_WebSocket_Protocol,
+                Sec_WebSocket_Protocol
             );
             console.log(client_socket);
             client_socket.addEventListener("error", (e) => {
@@ -87,7 +87,7 @@ export async function process_websocket(
                         },
                         {
                             once: true,
-                        },
+                        }
                     );
                 } else {
                     socket.send(e.data);

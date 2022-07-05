@@ -2,7 +2,7 @@ import { resolveDns4and6 } from "./resolveDns4and6.ts";
 
 export async function connect4or6_conn(
     hostname: string,
-    connect_port: number,
+    connect_port: number
 ): Promise<Deno.TcpConn> {
     const ips = await resolveDns4and6(hostname);
 

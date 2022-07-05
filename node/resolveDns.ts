@@ -3,7 +3,7 @@ import type { IAnswer } from "./IAnswer.ts";
 
 export async function resolveDns(
     name: string,
-    query_dns: (name: string) => Promise<IAnswer[]>,
+    query_dns: (name: string) => Promise<IAnswer[]>
     // dns_cache: DNS_Cache
 ): Promise<{ A?: string; AAAA?: string }> {
     // console.log(dns_cache);

@@ -2,7 +2,7 @@ import { Context, error_handler, NextFunction, RetHandler } from "../deps.ts";
 
 export async function process_proxy(
     ctx: Context,
-    next: NextFunction,
+    next: NextFunction
 ): Promise<RetHandler> {
     try {
         return await next();

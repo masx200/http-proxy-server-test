@@ -7,7 +7,7 @@ import {
 
 export async function process_self(
     ctx: Context,
-    next: NextFunction,
+    next: NextFunction
 ): Promise<RetHandler> {
     const { request: req, connInfo } = ctx;
     const { port, hostname } = new URL(req.url);

@@ -20,7 +20,7 @@ export async function query_dns(name: string): Promise<IAnswer[]> {
                         typeof d?.type === "string" &&
                         typeof d?.data === "string"
                     );
-                }),
+                })
             );
             return data as IAnswer[];
         } else {

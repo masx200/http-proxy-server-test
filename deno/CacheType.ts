@@ -5,7 +5,7 @@ export type CacheType<K, V> = {
     forEach: (
         callbackfn: (value: V, key: K, map: Map<K, V>) => void,
         // deno-lint-ignore no-explicit-any
-        thisArg?: any,
+        thisArg?: any
     ) => void;
     clear: () => void;
     has: (key: K) => boolean;

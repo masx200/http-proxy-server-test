@@ -12,7 +12,7 @@
 
 https://www.npmjs.com/package/dns-over-tls
 
-域名解析后对于ipv6和ipv4地址,可同时连接,选择连接更快的地址.
+域名解析后对于 ipv6 和 ipv4 地址,可同时连接,选择连接更快的地址.
 
 可以把`http`请求重定向到`https`
 
@@ -42,4 +42,4 @@ https://www.npmjs.com/package/dns-over-tls
 
 3. 设置代理服务器 地址 `127.0.0.1` 端口 `19001`
 
-4. `nodejs`服务器在端口19002提供dns 服务
+4. `nodejs`服务器在端口 19002 提供 dns 服务

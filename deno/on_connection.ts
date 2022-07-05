@@ -5,7 +5,7 @@ export async function on_connection(connection: Deno.Conn) {
     const connInfo = { localAddr, remoteAddr };
     for await (const requestEvent of Deno.serveHttp(connection)) {
         const response = await Promise.resolve(
-            handler(requestEvent.request, connInfo),
+            handler(requestEvent.request, connInfo)
         ).catch((e) => {
             console.error(e);
             return new Response(null, { status: 500 });

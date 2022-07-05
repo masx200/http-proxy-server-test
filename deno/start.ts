@@ -10,6 +10,6 @@ export async function start(port: number) {
             for await (const connection of server) {
                 on_connection(connection).catch(console.error);
             }
-        }),
+        })
     );
 }

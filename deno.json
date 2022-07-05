@@ -6,19 +6,12 @@
     },
     "lint": {
         "files": {
-            "exclude": [
-                "node_modules",
-                ".yarn",
-                "node",
-                "test"
-            ]
+            "exclude": ["node_modules", ".yarn", "node", "test"]
         }
     },
     "fmt": {
         "files": {
-            "exclude": [
-                "node_modules"
-            ]
+            "exclude": ["node_modules"]
         },
         "options": {
             "indentWidth": 4,

@@ -13,7 +13,7 @@ import { connect4or6_conn } from "./connect4or6_conn.ts";
 
 export async function process_connect(
     ctx: Context,
-    next: NextFunction,
+    next: NextFunction
 ): Promise<RetHandler> {
     const { request: req } = ctx;
     if (req.method !== "CONNECT") {
@@ -28,9 +28,9 @@ export async function process_connect(
         const connect_port = port ? Number(port) : 80;
         const socket: Deno.TcpConn = isIP(hostname)
             ? await Deno.connect({
-                port: connect_port,
-                hostname,
-            })
+                  port: connect_port,
+                  hostname,
+              })
             : await connect4or6_conn(hostname, connect_port);
 
         Deno.upgradeHttp(request)
