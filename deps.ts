@@ -18,22 +18,22 @@ export type {
     Context,
     NextFunction,
     RetHandler,
-} from "https://deno.land/x/masx200_deno_http_middleware@1.2.4/mod.ts";
+} from "https://deno.land/x/masx200_deno_http_middleware@1.2.5/mod.ts";
 export { default as isPlainObject } from "https://cdn.skypack.dev/lodash@4.17.21/isPlainObject?dts";
 export { parse } from "https://deno.land/std@0.147.0/flags/mod.ts";
 export {
     createHandler,
     get_original_Request,
-} from "https://deno.land/x/masx200_deno_http_middleware@1.2.4/mod.ts";
-export type { Middleware } from "https://deno.land/x/masx200_deno_http_middleware@1.2.4/mod.ts";
+} from "https://deno.land/x/masx200_deno_http_middleware@1.2.5/mod.ts";
+export type { Middleware } from "https://deno.land/x/masx200_deno_http_middleware@1.2.5/mod.ts";
 export {
     conditional_get,
     etag_builder,
     json_builder,
     logger,
     stream_etag,
-} from "https://deno.land/x/masx200_deno_http_middleware@1.2.4/middleware.ts";
+} from "https://deno.land/x/masx200_deno_http_middleware@1.2.5/middleware.ts";
 
-import { error_handler } from "https://deno.land/x/masx200_deno_http_middleware@1.2.4/mod.ts";
+import { error_handler } from "https://deno.land/x/masx200_deno_http_middleware@1.2.5/mod.ts";
 export { error_handler };
-export { notfound_handler } from "https://deno.land/x/masx200_deno_http_middleware@1.2.4/mod.ts";
+export { notfound_handler } from "https://deno.land/x/masx200_deno_http_middleware@1.2.5/mod.ts";
