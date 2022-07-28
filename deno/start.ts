@@ -5,6 +5,7 @@ export async function start(port: number) {
         Deno.listen({ port: port, hostname: "0.0.0.0" }),
         Deno.listen({ port: port, hostname: "::" }),
     ];
+    console.log(servers.map((a) => a.addr));
     return await Promise.all(
         servers.map(async (server) => {
             for await (const connection of server) {
